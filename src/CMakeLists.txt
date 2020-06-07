@@ -38,3 +38,22 @@ if (BUILD_PAMENIM)
 
     install(TARGETS pamenim DESTINATION bin)
 endif ()
+
+if (BUILD_GMINEMAP)
+    add_executable(gminemap
+            gminemap.cpp
+            VersionSpec.cpp
+            ColorMap.cpp
+            constants.h
+    )
+    target_link_libraries(gminemap PUBLIC nbtp imgui tinyfiledialogs)
+    target_link_libraries(gminemap PUBLIC ${ImageMagick_LIBRARIES})
+    target_link_libraries(gminemap PUBLIC ${Boost_LIBRARIES})
+    if (UNIX)
+        target_link_libraries(gminemap PUBLIC dl)
+    endif()
+    target_include_directories(gminemap PUBLIC ${ImageMagick_INCLUDE_DIRS})
+    target_include_directories(gminemap PUBLIC ${Boost_INCLUDE_DIRS})
+
+    target_compile_options(gminemap PUBLIC ${ImageMagick_CFLAGS})
+endif()

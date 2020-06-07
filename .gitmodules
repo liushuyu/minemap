@@ -1,3 +1,9 @@
-[submodule "nbtp"]
-	path = nbtp
+[submodule "externals/nbtp"]
+	path = externals/nbtp
 	url = https://git.cth451.me/cth451/nbtp
+[submodule "externals/imgui"]
+	path = externals/imgui
+	url = https://github.com/ocornut/imgui
+[submodule "externals/tinyfiledialogs"]
+	path = externals/tinyfiledialogs
+	url = https://git.code.sf.net/p/tinyfiledialogs/code

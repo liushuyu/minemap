@@ -12,15 +12,14 @@ set (CMAKE_CXX_STANDARD 17)
 set(warnings "-g -Wall")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${warnings}")
 
-option(BUILD_PAMENIM "Build Pamenim" ON)
+option(BUILD_PAMENIM  "Build Pamenim" ON)
+option(BUILD_GMINEMAP "Build GMinemap" ON)
 
 set(MINEMAP_PALETTE_DIR ${CMAKE_INSTALL_PREFIX}/share/minemap/palettes CACHE STRING "Directory to minemap palette GIFs")
 add_compile_definitions(MINEMAP_PALETTE_DIR=\"${MINEMAP_PALETTE_DIR}\")
 
 # External imports
-option(NBTP_BUILD_PYTHON_MODULE OFF)
-add_subdirectory(nbtp EXCLUDE_FROM_ALL)
-target_include_directories(nbtp INTERFACE ./nbtp/include)
+add_subdirectory(externals)
 
 # Source files
 add_subdirectory(src)
